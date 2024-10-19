@@ -1,4 +1,5 @@
-# 🚀 Welcome to the **Tracking App**:... ahem...Stalking... I mean, **Tracking** made Easy!
+# 🚀 Welcome to the **Tracking App**:... ahem...Stalking...
+I mean, **Tracking** made Easy!
 
 ![Tracking](https://media.giphy.com/media/l41lVSYpEZzZ3yZcE/giphy.gif)
 
