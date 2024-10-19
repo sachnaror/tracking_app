@@ -5,8 +5,8 @@
 </div>
 
 
-# 🚀 Welcome to the **Tracking App**:... ahem...Stalking...
-#   I mean, **Tracking** made Easy!
+# 🚀 Welcome to new hot-in-town **Tracking App**:... ahem...Stalking...
+# 🚀 I mean, **Tracking** made Easy!
 
 
 ## 🤔 What's this App All About?
