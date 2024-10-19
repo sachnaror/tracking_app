@@ -1,12 +1,12 @@
-# 🚀 Welcome to the **Tracking App**:... ahem...Stalking...I mean, **Tracking** made Easy!
-
 <div align="center">
   <img src="https://user-images.githubusercontent.com/74038190/213866269-5d00981c-7c98-46d7-8a8e-16f462f15227.gif" width="200" />
   <img src="https://user-images.githubusercontent.com/74038190/213866269-5d00981c-7c98-46d7-8a8e-16f462f15227.gif" width="200" />
   <img src="https://user-images.githubusercontent.com/74038190/213866269-5d00981c-7c98-46d7-8a8e-16f462f15227.gif" width="200" />
 </div>
 
-![Tracking](https://media.giphy.com/media/l41lVSYpEZzZ3yZcE/giphy.gif)
+
+# 🚀 Welcome to the **Tracking App**:... ahem...Stalking...I mean, **Tracking** made Easy!
+
 
 ## 🤔 What's this App All About?
 So, you want to know everything about someone just because they clicked a link you sent them? Of course you do. This app is here to help you unleash your inner Sherlock Holmes! 🕵️‍♂️
