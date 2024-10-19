@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tracker',
 ]
-IPINFO_TOKEN = '97401683805862'  # Make sure to keep this token secure!
+IPINFO_TOKEN = '97401683205822'  # Make sure to keep this token secure!
 
 # Middleware settings
 MIDDLEWARE = [
