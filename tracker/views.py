@@ -97,3 +97,11 @@ def generate_link(request):
 def track_user_view(request, user_id):
     tracking_link = get_object_or_404(TrackingLink, id=user_id)
     return JsonResponse(tracking_link.user_info)
+
+
+# def view_tracked_data(request, unique_id):
+#     tracking_link = TrackingLink.objects.filter(link=f"http://127.0.0.1:8000/track_user/{unique_id}/").first()
+#     if tracking_link:
+#         return JsonResponse(tracking_link.user_info)
+#     else:
+#         return JsonResponse({'error': 'Tracking data not found'}, status=404)
