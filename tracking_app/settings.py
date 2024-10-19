@@ -70,6 +70,7 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'tracking_app.wsgi.application'
 
 
