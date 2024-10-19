@@ -1,10 +1,10 @@
 # tracking_app/urls.py
-from django.contrib import admin
-from django.urls import include, path
+
+from django.urls import path
+
+from .views import generate_link, track_user
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('tracker/', include('tracker.urls')),
-        path('track_user/', views.track_user, name='track_user'),
-
+    path('generate_link/', generate_link, name='generate_link'),
+    path('track_user/<str:unique_id>/', track_user, name='track_user'),
 ]

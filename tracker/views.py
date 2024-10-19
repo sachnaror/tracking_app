@@ -1,35 +1,50 @@
 # tracker/views.py
+
+import json
 import uuid
 
+import requests
+from django.http import HttpResponse
 from django.shortcuts import redirect, render
 
-from .models import UserTracking
+from .models import TrackingLink
 
 
 def generate_link(request):
-    # Generate a unique link ID
-    link_id = str(uuid.uuid4())
-    link = f"http://127.0.0.1:8000/tracker/{link_id}/"
-    return render(request, 'tracker/generate_link.html', {'link': link})
+    if request.method == "POST":
+        unique_id = str(uuid.uuid4())
+        link = f"http://127.0.0.1:8000/track_user/{unique_id}/"
+        TrackingLink.objects.create(link=link, user_info={})
+        return render(request, 'tracker/link_generated.html', {'link': link})
 
-def track_user(request, link_id):
-    if request.method == 'GET':
-        ip_address = request.META.get('REMOTE_ADDR')
-        user_agent = request.META.get('HTTP_USER_AGENT')
-        fingerprint = request.GET.get('fingerprint')  # To be set by FingerprintJS
+    return render(request, 'tracker/generate_link.html')
 
-        # Dummy location data, you can use external APIs for this
-        location = "Unknown"  # Get user location using an API if needed
-        device_info = f"User Agent: {user_agent}"
+def track_user(request, unique_id):
+    tracking_link = TrackingLink.objects.filter(link=f"http://127.0.0.1:8000/track_user/{unique_id}/").first()
 
-        # Save tracking data to the database
-        UserTracking.objects.create(
-            link_id=link_id,
-            ip_address=ip_address,
-            user_agent=user_agent,
-            fingerprint=fingerprint,
-            location=location,
-            device_info=device_info
-        )
+    if tracking_link:
+        user_info = {
+            'ip': request.META.get('REMOTE_ADDR'),
+            'user_agent': request.META.get('HTTP_USER_AGENT'),
+        }
 
-        return render(request, 'tracker/track_user.html', {'link_id': link_id})
+        # Get IP Geolocation
+        ip_info = requests.get(f'https://ipinfo.io/{user_info["ip"]}/json').json()
+        user_info.update(ip_info)
+
+        # Device Detection (use a service like Userstack or WURFL here)
+        device_api_url = 'http://api.userstack.com/detect'
+        params = {
+            'access_key': 'YOUR_USERSTACK_ACCESS_KEY',  # Replace with your Userstack API key
+            'ua': user_info['user_agent']
+        }
+        device_info = requests.get(device_api_url, params=params).json()
+        user_info.update(device_info)
+
+        # Save user_info in the tracking link
+        tracking_link.user_info = user_info
+        tracking_link.save()
+
+        return render(request, 'tracker/track_user.html', {'user_info': user_info})
+
+    return HttpResponse("Link not found.", status=404)
