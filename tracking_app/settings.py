@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'tracker',
 ]
 
+IPINFO_TOKEN = '97401683805862'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -48,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'ipinfo_django.middleware.IPinfoMiddleware',
 ]
 
 ROOT_URLCONF = 'tracking_app.urls'
