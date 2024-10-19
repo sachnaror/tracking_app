@@ -33,7 +33,7 @@ Follow these simple steps, or call a developer if you prefer Netflix to coding:
 1. **Clone the repo** (because that's what all cool devs do):
 
    ```
-   git clone https://github.com/your-username/tracking_app.git
+   git clone https://github.com/sachnaror/tracking_app.git
    ```
 
 **2. Install the requirements (Python’s favorite snack):**
