@@ -5,11 +5,11 @@
 </div>
 
 
-# 🚀 Welcome to new hot-in-town **Tracking App** ...... ahem.....Stalking...🚀 I mean, **Tracking** made Easy!
+# 🚀 Welcome to Vyomkesh_Bakshi_App i.e.  **Tracking App** ...... ahem.....Stalking...🚀 I mean, **Tracking** made Easy!
 
 
 ## 🤔 What's this App All About?
-So, you want to know everything about someone just because they clicked a link you sent them? Of course you do. This app is here to help you unleash your inner Sherlock Holmes! 🕵️‍♂️
+So, you want to know everything about someone just because they clicked a link you sent them? Of course you do. This app is here to help you unleash your inner Vyomkesh Bakshi or Sherlock Holmes! 🕵️‍♂️
 
 No more guessing! Now, with the **Tracking App**, you can *casually* spy—I mean, gather **important user information** like their IP address, location, and whether they prefer pineapples on pizza. 🍍🍕 (Ok, maybe not the pizza part, but still... it’s cool, right?)
 
