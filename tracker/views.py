@@ -77,7 +77,7 @@ def track_user(request, unique_id):
 def generate_link(request):
     if request.method == "POST":
         unique_id = str(uuid.uuid4())
-        link = request.build_absolute_uri(f'/track_user/{unique_id}/')  # Build link dynamically
+        link = request.build_absolute_uri(f'/t/{unique_id}/')  # Build link dynamically
         # Create a new tracking link instance
         TrackingLink.objects.create(link=link, user_info={})
         return render(request, 'tracker/link_generated.html', {'link': link})
@@ -93,7 +93,7 @@ def track_user_view(request, user_id):
 
 
 def view_tracked_data(request, unique_id):
-    tracking_link = TrackingLink.objects.filter(link=f"http://127.0.0.1:8000/track_user/{unique_id}/").first()
+    tracking_link = TrackingLink.objects.filter(link=f"http://127.0.0.1:8000/v/{unique_id}/").first()
     if tracking_link:
         return JsonResponse(tracking_link.user_info)
     else:
