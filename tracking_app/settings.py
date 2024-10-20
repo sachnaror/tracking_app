@@ -19,12 +19,9 @@ SECRET_KEY = 'django-insecure-_#w-_o^l9#yvy00gz)en(ll_@6pj&ro4a9+i7s#@-^on!q^adi
 DEBUG = True
 
 # settings.py
-ALLOWED_HOSTS = [
-    '127.0.0.1',  # Localhost
-    'localhost',  # Localhost
-    'tracking-app-6fbi.onrender.com',  # Your Render application URL
-    # Add any other domains or IPs as necessary
-]
+import os
+
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(",")
 
 INSTALLED_APPS = [
     'django.contrib.admin',
