@@ -104,3 +104,30 @@ Do you have the urge to add even more crazy features? Want to track more than ju
 This project is licensed under the “Don’t Use This to Do Anything Illegal” License. Use responsibly, or we’ll send Liam Neeson to track you down. 😉
 
 You can copy and paste the above markdown code into your `README.md` file!
+
+
+# Structure
+
+├── tracking_app/
+│   ├── db.sqlite3
+│   ├── README.md
+│   ├── .env
+│   ├── manage.py
+│   ├── urls.py
+│   ├── tracker/
+│   │   ├── models.py
+│   │   ├── apps.py
+│   │   ├── admin.py
+│   │   ├── tests.py
+│   │   ├── urls.py
+│   │   └── views.py
+│   │   ├── templates/
+│   │   │   ├── tracker/
+│   │   │   │   ├── generate_link.html
+│   │   │   │   ├── link_generated.html
+│   │   │   │   └── track_user.html
+│   ├── tracking_app/
+│   │   ├── asgi.py
+│   │   ├── settings.py
+│   │   ├── urls.py
+│   │   └── wsgi.py

@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tracker',
+    'ipinfo_django',
 ]
 IPINFO_TOKEN = os.getenv('IPINFO_TOKEN')  # Fetch token from environment  # Make sure to keep this token secure!
 
@@ -43,7 +44,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'ipinfo_django.middleware.IPinfoMiddleware',  # Ensure this is added
+    'ipinfo_django.middleware.IPinfoMiddleware',
+    # Ensure this is added
 ]
 
 # Optional: You may want to define the settings for IPinfo
@@ -53,7 +55,7 @@ IPINFO_MIDDLEWARE = {
 }
 
 # If you have specific IPs to allow, you can define them here
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']  # Add other IPs if needed
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost','testdomain.local']  # Add other IPs if needed
 
 ROOT_URLCONF = 'tracking_app.urls'
 

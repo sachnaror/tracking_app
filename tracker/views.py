@@ -21,9 +21,8 @@ def get_client_ip(request):
         return request.META.get('REMOTE_ADDR')
 
 
-# Unified function to fetch IP info
+# Unified function to fetch IP info from IPinfo
 def get_ip_info(ip_address):
-    # Handle localhost requests
     if ip_address == '127.0.0.1':
         return {
             'ip': '127.0.0.1',
@@ -42,7 +41,7 @@ def get_ip_info(ip_address):
         }
 
     # Fetch data from IPInfo
-    ipinfo_token = settings.IPINFO_TOKEN
+    ipinfo_token = settings.IPINFO_TOKEN  # Ensure your token is set in your settings
     try:
         response = requests.get(f'https://ipinfo.io/{ip_address}/json?token={ipinfo_token}')
         response.raise_for_status()  # Raise error for bad responses
@@ -61,16 +60,9 @@ def my_ip_view(request):
 
 # View to track user information based on unique link
 def track_user(request, unique_id):
-    # Get the user's IP address
-    ip_address = get_client_ip(request)
-
-    # Fetch IP info from ipinfo.io
-    user_info = get_ip_info(ip_address)
-
-    # Dynamically generate the link instead of hardcoding
-    current_link = request.build_absolute_uri()
-
-    # Fetch the tracking link from the database
+    ip_address = get_client_ip(request)  # Get the user's IP address
+    user_info = get_ip_info(ip_address)  # Fetch IP info from IPinfo
+    current_link = request.build_absolute_uri()  # Dynamically generate the link
     tracking_link = TrackingLink.objects.filter(link=current_link).first()
 
     # Update the tracking link with user info if found
@@ -99,9 +91,10 @@ def track_user_view(request, user_id):
     return JsonResponse(tracking_link.user_info)
 
 
-# def view_tracked_data(request, unique_id):
-#     tracking_link = TrackingLink.objects.filter(link=f"http://127.0.0.1:8000/track_user/{unique_id}/").first()
-#     if tracking_link:
-#         return JsonResponse(tracking_link.user_info)
-#     else:
-#         return JsonResponse({'error': 'Tracking data not found'}, status=404)
+
+def view_tracked_data(request, unique_id):
+    tracking_link = TrackingLink.objects.filter(link=f"http://127.0.0.1:8000/track_user/{unique_id}/").first()
+    if tracking_link:
+        return JsonResponse(tracking_link.user_info)
+    else:
+        return JsonResponse({'error': 'Tracking data not found'}, status=404)
